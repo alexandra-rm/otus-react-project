@@ -1,0 +1,19 @@
+{
+  "name": "otus-react-project",
+  "version": "1.0.0",
+  "description": "OTUS React JS Courses Final Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Evgeny Shurupov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4"
+  }
+}
