@@ -4,17 +4,14 @@
   "description": "OTUS React JS Courses Final Project",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"No test\""
   },
   "author": "Evgeny Shurupov",
   "license": "ISC",
   "homepage": "https://github.com/shurupov/otus-react-project",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
-    "ts-loader": "^8.0.2",
-    "typescript": "^3.9.7",
+    "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
