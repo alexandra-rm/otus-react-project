@@ -9,8 +9,9 @@
           "chrome": "67",
           "safari": "11.1",
         }
-      },
-      "@babel/preset-typescript"
-    ]
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ]
 }
