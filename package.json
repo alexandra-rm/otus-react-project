@@ -12,7 +12,10 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
+    "loki:approve": "npx loki approve",
+    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static"
   },
   "author": "Evgeny Shurupov",
   "license": "ISC",
@@ -51,14 +54,14 @@
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "loki": "^0.20.3"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.34",
     "lodash": "^4.17.19",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "loki": "^0.20.3"
+    "react-dom": "^16.13.1"
   }
 }
