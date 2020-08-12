@@ -10,9 +10,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./",
     "prettify": "npx prettier . --write",
     "test": "jest",
-    "coverage": "jest --coverage",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "coverage": "jest --coverage"
   },
   "author": "Evgeny Shurupov",
   "license": "ISC",
