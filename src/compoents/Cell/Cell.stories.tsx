@@ -8,7 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const customCell = () => (
+export const cell = () => (
   <Cell
     alive={boolean("alive", true)}
     size={number("size", 100)}
