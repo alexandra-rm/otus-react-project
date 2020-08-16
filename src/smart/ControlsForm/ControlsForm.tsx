@@ -28,25 +28,25 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
         return (
             <form>
                 <Grid container spacing={1}>
-                    <Grid item xs={12} sm={6} md={4} spacing={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} spacing={3}>
                         <TextField fullWidth variant="outlined" label="По горизонтали" defaultValue={this.props.fieldWidth.toString()} onChange={this.handleChange("fieldWidth")}  type="number"/>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} spacing={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} spacing={3}>
                         <TextField fullWidth variant="outlined" label="По вертикали" defaultValue={this.props.fieldHeight.toString()} onChange={this.handleChange("fieldHeight")}  type="number"/>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} spacing={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} spacing={3}>
                         <TextField fullWidth variant="outlined" label="Размер клетки" defaultValue={this.props.cellSize.toString()} onChange={this.handleChange("cellSize")}  type="number"/>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} spacing={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} spacing={3}>
                         <TextField fullWidth variant="outlined" label="Задержка анимации" defaultValue={this.props.animationDelay.toString()} onChange={this.handleChange("animationDelay")}  type="number"/>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} spacing={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} spacing={3}>
                         <TextField fullWidth variant="outlined" label="Процент живых клеток" defaultValue={this.props.alivePercent.toString()} onChange={this.handleChange("alivePercent")}  type="number"/>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} spacing={3}>
+                    <Grid item xs={12} sm={6} md={4} lg={3} spacing={3}>
                         <TextField fullWidth variant="outlined" label="Количество шагов анимации" defaultValue={this.props.animationStepsCount.toString()} onChange={this.handleChange("animationStepsCount")}  type="number"/>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} spacing={3} justify="flex-end">
+                    <Grid item xs={12} spacing={3}>
                         <Button variant="contained" color="primary" onClick={this.props.update}>
                             Обновить
                         </Button>
