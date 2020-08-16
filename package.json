@@ -54,6 +54,7 @@
     "loki": "^0.20.3",
     "prettier": "^2.0.5",
     "react-is": "^16.13.1",
+    "redux-saga-test-plan": "^4.0.0-rc.3",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
