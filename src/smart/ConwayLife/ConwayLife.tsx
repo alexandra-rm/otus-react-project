@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import {Cell, PoorCellProps} from "../Cell/Cell";
+import {Cell, PoorCellProps} from "./Cell";
 import React from "react";
 
 export interface ConwaySettings {
