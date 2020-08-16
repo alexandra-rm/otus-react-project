@@ -20,5 +20,5 @@ export const controlsForm = () => {
         fieldWidth: number("fieldWidth", 25)
     };
 
-    return<ControlsForm {...settings} />;
+    return <ControlsForm {...settings} />;
 };

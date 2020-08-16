@@ -1,6 +1,12 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import {MouseEventHandler} from "react";
 import {ConwaySettings} from "../ConwayLife/ConwayLife";
 import React from "react";
+import {TextField} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
 
 export interface ControlsFormProps extends ConwaySettings {
     changeSetting: Function;
@@ -20,66 +26,37 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
     render() {
         return (
             <form
-                style={{
+                css={{
                     clear: "both",
                 }}
             >
-                <br />
-                <label>
-                    По горизонтали:
-                    <input
-                        type="number"
-                        value={this.props.fieldWidth.toString()}
-                        onChange={this.handleChange("fieldWidth")}
-                    />
-                </label>
-                <br />
-                <label>
-                    По вертикали:
-                    <input
-                        type="number"
-                        value={this.props.fieldHeight.toString()}
-                        onChange={this.handleChange("fieldHeight")}
-                    />
-                </label>
-                <br />
-                <label>
-                    Размер клетки:
-                    <input
-                        type="number"
-                        value={this.props.cellSize.toString()}
-                        onChange={this.handleChange("cellSize")}
-                    />
-                </label>
-                <br />
-                <label>
-                    Задержка анимации:
-                    <input
-                        type="number"
-                        value={this.props.animationDelay.toString()}
-                        onChange={this.handleChange("animationDelay")}
-                    />
-                </label>
-                <br />
-                <label>
-                    Процент живых клеток:
-                    <input
-                        type="number"
-                        value={this.props.alivePercent.toString()}
-                        onChange={this.handleChange("alivePercent")}
-                    />
-                </label>
-                <br />
-                <label>
-                    Количество шагов анимации:
-                    <input
-                        type="number"
-                        value={this.props.animationStepsCount.toString()}
-                        onChange={this.handleChange("animationStepsCount")}
-                    />
-                </label>
-                <br />
-                <input type="button" value="Обновить" onClick={this.props.update} />
+                <Container fixed>
+                    <Grid container spacing={1}>
+                        <Grid item xs={12} sm={6} md={4} spacing={3}>
+                            <TextField fullWidth variant="outlined" label="По горизонтали" defaultValue={this.props.fieldWidth.toString()} onChange={this.handleChange("fieldWidth")}  type="number"/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} spacing={3}>
+                            <TextField fullWidth variant="outlined" label="По вертикали" defaultValue={this.props.fieldHeight.toString()} onChange={this.handleChange("fieldHeight")}  type="number"/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} spacing={3}>
+                            <TextField fullWidth variant="outlined" label="Размер клетки" defaultValue={this.props.cellSize.toString()} onChange={this.handleChange("cellSize")}  type="number"/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} spacing={3}>
+                            <TextField fullWidth variant="outlined" label="Задержка анимации" defaultValue={this.props.animationDelay.toString()} onChange={this.handleChange("animationDelay")}  type="number"/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} spacing={3}>
+                            <TextField fullWidth variant="outlined" label="Процент живых клеток" defaultValue={this.props.alivePercent.toString()} onChange={this.handleChange("alivePercent")}  type="number"/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} spacing={3}>
+                            <TextField fullWidth variant="outlined" label="Количество шагов анимации" defaultValue={this.props.animationStepsCount.toString()} onChange={this.handleChange("animationStepsCount")}  type="number"/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} spacing={3} justify="flex-end">
+                            <Button variant="contained" color="primary" onClick={this.props.update}>
+                                Обновить
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Container>
             </form>
         );
     }
