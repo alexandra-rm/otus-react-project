@@ -7,8 +7,10 @@ import {
 } from "smart/ConwayLife/slice";
 import { AnyAction } from "redux";
 import {ConwaySettings} from "smart/ConwayLife/ConwayLife";
+import {sleep} from "utils/sleep";
 
 const conwaySagaActionTypes = {
+    START: "saga/conway/start",
     UPDATE: "saga/conway/update",
     REINIT: "saga/conway/reinit",
     CHANGE_SETTING: "saga/conway/changeSetting",
@@ -107,6 +109,12 @@ export const reinitAction = () => {
     };
 };
 
+export const startAction = () => {
+    return {
+        type: conwaySagaActionTypes.START,
+    };
+};
+
 export const changeSettingAction = (field: string, value: number) => {
     return {
         type: conwaySagaActionTypes.CHANGE_SETTING,
@@ -120,6 +128,8 @@ export const changeSettingAction = (field: string, value: number) => {
 export const settingsSelector = (state: StoreState) => state.conwaySettings;
 
 export const fieldSelector = (state: StoreState) => state.conwayField;
+
+export const delayTimeSelector = (state: StoreState) => state.conwaySettings.animationDelay;
 
 export const previous: Array<Array<Array<PoorCellProps>>> = [];
 
@@ -206,5 +216,21 @@ export function* watchSagaChangeSetting() {
     yield takeEvery(
         conwaySagaActionTypes.CHANGE_SETTING,
         workerSagaChangeSetting
+    );
+}
+
+export function* workerSagaConwayStart() {
+    yield put(reinitAction());
+    while (true) {
+        const delayTime = yield select(delayTimeSelector);
+        yield call(sleep, delayTime);
+        yield workerSagaUpdate();
+    }
+}
+
+export function* watchSagaConwayStart() {
+    yield takeEvery(
+        conwaySagaActionTypes.START,
+        workerSagaConwayStart
     );
 }

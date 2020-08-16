@@ -9,6 +9,7 @@ module.exports = {
     moduleNameMapper: {
         "^smart/(.*)$": "<rootDir>/src/smart/$1",
         "^store/(.*)$": "<rootDir>/src/store/$1",
+        "^utils/(.*)$": "<rootDir>/src/utils/$1",
     },
     /*coverageThreshold: {
         global: {

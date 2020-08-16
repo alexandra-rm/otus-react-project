@@ -4,7 +4,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
 
 import {
-  watchSagaChangeSetting,
+  startAction,
+  watchSagaChangeSetting, watchSagaConwayStart,
   watchSagaInit,
   watchSagaUpdate,
 } from "smart/ConwayLife/saga";
@@ -17,5 +18,7 @@ export const store: Store = createStore(
 );
 
 sagaMiddleware.run(watchSagaUpdate);
+sagaMiddleware.run(watchSagaConwayStart);
 sagaMiddleware.run(watchSagaInit);
 sagaMiddleware.run(watchSagaChangeSetting);
+store.dispatch(startAction());

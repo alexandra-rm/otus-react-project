@@ -25,7 +25,7 @@ interface ConwayLifeProps {
 export const ConwayLife = (props: ConwayLifeProps) => {
     return (
         <Grid container spacing={1} >
-            <Grid item xs={12} spacing={3} css={{ marginTop: 8 }}>
+            <Grid item xs={12} css={{ marginTop: 8 }}>
             {props.conwayField.map((l: Array<PoorCellProps>, i) => (
                 <div
                     key={"l-" + i.toString()}
