@@ -1,7 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import {Cell, PoorCellProps} from "./Cell";
+import { connect } from "react-redux";
 import React from "react";
+import {updateAction} from "smart/ConwayLife/saga";
+import {Dispatch} from "redux";
+import {StoreState} from "store/reducer";
 
 export interface ConwaySettings {
     fieldWidth: number;
@@ -46,3 +50,21 @@ export const ConwayLife = (props: ConwayLifeProps) => {
         </div>
     );
 };
+
+const mapStateToProps = ({ conwaySettings, conwayField }: StoreState) => ({
+    conwaySettings,
+    conwayField,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        update: () => {
+            dispatch(updateAction());
+        },
+    };
+};
+
+export const ConnectedConwayLife = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ConwayLife);

@@ -7,7 +7,8 @@ module.exports = {
         "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
     },
     moduleNameMapper: {
-        "^components/(.*)$": "<rootDir>/src/components/$1",
+        "^smart/(.*)$": "<rootDir>/src/smart/$1",
+        "^store/(.*)$": "<rootDir>/src/store/$1",
     },
     /*coverageThreshold: {
         global: {
