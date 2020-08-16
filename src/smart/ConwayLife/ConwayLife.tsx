@@ -6,6 +6,7 @@ import React from "react";
 import {updateAction} from "smart/ConwayLife/saga";
 import {Dispatch} from "redux";
 import {StoreState} from "store/reducer";
+import Grid from "@material-ui/core/Grid";
 
 export interface ConwaySettings {
     fieldWidth: number;
@@ -23,12 +24,8 @@ interface ConwayLifeProps {
 
 export const ConwayLife = (props: ConwayLifeProps) => {
     return (
-        <div
-            className="conway-life"
-            css={{
-                clear: "both",
-            }}
-        >
+        <Grid container spacing={1} >
+            <Grid item xs={12} spacing={3} css={{ marginTop: 8 }}>
             {props.conwayField.map((l: Array<PoorCellProps>, i) => (
                 <div
                     key={"l-" + i.toString()}
@@ -47,7 +44,8 @@ export const ConwayLife = (props: ConwayLifeProps) => {
                     ))}
                 </div>
             ))}
-        </div>
+            </Grid>
+        </Grid>
     );
 };
 
