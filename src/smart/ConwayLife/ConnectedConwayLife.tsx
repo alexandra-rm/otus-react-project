@@ -5,19 +5,19 @@ import { connect } from "react-redux";
 import { ConwayLife } from "components/ConwayLife/ConwayLife";
 
 const mapStateToProps = ({ conwaySettings, conwayField }: StoreState) => ({
-  conwaySettings,
-  conwayField,
+    conwaySettings,
+    conwayField,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    update: () => {
-      dispatch(updateAction());
-    },
-  };
+    return {
+        update: () => {
+            dispatch(updateAction());
+        },
+    };
 };
 
 export const ConnectedConwayLife = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(ConwayLife);
