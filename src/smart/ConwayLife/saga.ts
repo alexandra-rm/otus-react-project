@@ -1,4 +1,4 @@
-import { PoorCellProps } from "smart/ConwayLife/Cell";
+import { PoorCellProps } from "components/ConwayLife/Cell/Cell";
 import { call, put, takeEvery, select } from "redux-saga/effects";
 import { StoreState } from "store/reducer";
 import {
@@ -6,7 +6,7 @@ import {
     conwaySettingsSlice,
 } from "smart/ConwayLife/slice";
 import { AnyAction } from "redux";
-import {ConwaySettings} from "smart/ConwayLife/ConwayLife";
+import {ConwaySettings} from "components/ConwayLife/ConwayLife";
 import {sleep} from "utils/sleep";
 
 const conwaySagaActionTypes = {

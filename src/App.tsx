@@ -1,9 +1,9 @@
 import React from "react";
 import {Provider} from "react-redux";
 import {store} from "store/store";
-import {ConnectedControlsForm} from "smart/ControlsForm/ControlsForm";
-import {ConnectedConwayLife} from "smart/ConwayLife/ConwayLife";
 import Container from "@material-ui/core/Container";
+import {ConnectedConwayLife} from "smart/ConwayLife/ConnectedConwayLife";
+import {ConnectedControlsForm} from "smart/ControlsForm/ConnectedControlsForm";
 
 export class App extends React.Component {
     render() {

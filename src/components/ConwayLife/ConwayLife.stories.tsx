@@ -1,7 +1,7 @@
 import {boolean, number, withKnobs} from "@storybook/addon-knobs";
 import {ConwayLife, ConwaySettings} from "./ConwayLife";
-import {PoorCellProps} from "./Cell";
-import * as React from "react";
+import {PoorCellProps} from "./Cell/Cell";
+import React from "react";
 
 export default {
     title: "ConwayLife",

@@ -1,13 +1,9 @@
 import {MouseEventHandler} from "react";
-import {ConwaySettings} from "../ConwayLife/ConwayLife";
+import {ConwaySettings} from "components/ConwayLife/ConwayLife";
 import React from "react";
 import {TextField} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import {connect} from "react-redux";
-import {changeSettingAction, reinitAction} from "smart/ConwayLife/saga";
-import {Dispatch} from "redux";
-import {StoreState} from "store/reducer";
 
 export interface ControlsFormProps extends ConwaySettings {
     changeSetting: Function;
@@ -57,24 +53,3 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
     }
 }
 
-
-
-const mapStateToProps = ({ conwaySettings }: StoreState) => {
-    return conwaySettings;
-};
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        changeSetting: (fieldName: string, value: number) => {
-            dispatch(changeSettingAction(fieldName, value));
-        },
-        update: () => {
-            dispatch(reinitAction());
-        },
-    };
-};
-
-export const ConnectedControlsForm = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ControlsForm);

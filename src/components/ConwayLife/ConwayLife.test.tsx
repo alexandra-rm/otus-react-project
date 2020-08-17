@@ -1,5 +1,5 @@
 import {ConwayLife, ConwaySettings} from "./ConwayLife";
-import {PoorCellProps} from "./Cell";
+import {PoorCellProps} from "components/ConwayLife/Cell/Cell";
 import {mount} from "enzyme";
 import React from "react";
 

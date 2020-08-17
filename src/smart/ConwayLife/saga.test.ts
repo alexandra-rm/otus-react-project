@@ -15,7 +15,7 @@ import {
 } from "smart/ConwayLife/saga";
 import { conwayFieldSlice, conwaySettingsSlice } from "smart/ConwayLife/slice";
 import { reducer, StoreState } from "store/reducer";
-import { PoorCellProps } from "smart/ConwayLife/Cell";
+import { PoorCellProps } from "components/ConwayLife/Cell/Cell";
 
 const initialState: StoreState = {
   conwayField: [],
