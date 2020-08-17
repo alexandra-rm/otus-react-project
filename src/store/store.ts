@@ -5,7 +5,8 @@ import createSagaMiddleware from "redux-saga";
 
 import {
   startAction,
-  watchSagaChangeSetting, watchSagaConwayStart,
+  watchSagaChangeSetting,
+  watchSagaConwayStart,
   watchSagaInit,
   watchSagaUpdate,
 } from "smart/ConwayLife/saga";

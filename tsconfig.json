@@ -9,18 +9,10 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "components/*": [
-        "src/components/*"
-      ],
-      "smart/*": [
-        "src/smart/*"
-      ],
-      "store/*": [
-        "src/store/*"
-      ],
-      "utils/*": [
-        "src/utils/*"
-      ]
+      "components/*": ["src/components/*"],
+      "smart/*": ["src/smart/*"],
+      "store/*": ["src/store/*"],
+      "utils/*": ["src/utils/*"]
     }
   }
 }
