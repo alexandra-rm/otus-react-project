@@ -11,6 +11,7 @@ https://github.com/shurupov/otus-react-project
 
 ##### Презентации:
 [ODP презентация](Presentation.odp)
+
 [Google Slides презентация](https://docs.google.com/presentation/d/1V6E_hLqo-eoWZ-zfD55AXGeWZziDNVuymRhsbUcUs3M)
 
 ##### Используемые технологии:
