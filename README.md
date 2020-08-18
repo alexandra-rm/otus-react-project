@@ -9,6 +9,10 @@ https://github.com/shurupov/otus-react-project
 
 ![Game of Life Application](game-life.png "Игра Жизнь")
 
+##### Презентации:
+[ODP презентация](Presentation.odp)
+[Google Slides презентация](https://docs.google.com/presentation/d/1V6E_hLqo-eoWZ-zfD55AXGeWZziDNVuymRhsbUcUs3M)
+
 ##### Используемые технологии:
 
 1. Babel, Webpack, TypeScript, loki, Jest
