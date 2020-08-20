@@ -39,14 +39,12 @@ describe("User saga", () => {
       .isDone();
   });
   it("Restore saga integration test", () => {
-    const bob = {
-      username: "Bob"
-    };
+    const bob = "Bob";
     localStorage.setItem("user", JSON.stringify(bob));
     const expectedFinalStoreState = {
       ...initialState,
       user: {
-        ...bob,
+        username: bob
       },
     };
     return expectSaga(workerSagaRestoreSession)
