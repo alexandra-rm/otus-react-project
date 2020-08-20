@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import { MouseEventHandler } from "react";
 import { ConwaySettings } from "components/ConwayLife/ConwayLife";
 import React from "react";
@@ -22,7 +24,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
 
     render() {
         return (
-            <form>
+            <form css={{ marginTop: 20 }}>
                 <Grid container spacing={1}>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
                         <TextField

@@ -14,7 +14,8 @@ module.exports = {
         },
     },
     devServer: {
-        contentBase: "./dist",
+        historyApiFallback: true,
+        hot: true,
     },
     output: {
         filename: "index.js",

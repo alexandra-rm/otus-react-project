@@ -176,7 +176,7 @@ export function* watchSagaInit() {
 }
 
 export function* workerSagaConwayStart() {
-    yield put(reinitAction());
+    //yield put(reinitAction());
     while (true) {
         const delayTime = yield select(delayTimeSelector);
         yield call(sleep, delayTime);
