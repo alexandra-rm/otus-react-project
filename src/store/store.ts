@@ -14,7 +14,7 @@ import {
     sagaRestoreSessionAction,
     watchSagaLogin,
     watchSagaLogout,
-    watchSagaRestoreSession
+    watchSagaRestoreSession,
 } from "smart/ConnectedLogin/saga";
 
 const sagaMiddleware = createSagaMiddleware();

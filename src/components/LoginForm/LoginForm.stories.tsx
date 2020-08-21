@@ -1,6 +1,6 @@
-import {withKnobs} from "@storybook/addon-knobs";
-import {LoginForm} from "./LoginForm";
-import * as React from "react";
+import { withKnobs } from "@storybook/addon-knobs";
+import { LoginForm } from "./LoginForm";
+import React from "react";
 
 export default {
     title: "LoginForm",
@@ -9,5 +9,12 @@ export default {
 };
 
 export const loginForm = () => {
-    return <LoginForm authenticated={false} login={(username: string) => { alert(username + " logged in"); }} />;
+    return (
+        <LoginForm
+            authenticated={false}
+            login={(username: string) => {
+                alert(username + " logged in");
+            }}
+        />
+    );
 };

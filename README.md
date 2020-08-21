@@ -1,6 +1,5 @@
 # OTUS React JS Final Project
 
-
 https://github.com/shurupov/otus-react-project
 
 ### Это репозиторий проектной работы курса React JS в школе Otus
@@ -10,6 +9,7 @@ https://github.com/shurupov/otus-react-project
 ![Game of Life Application](game-life.png "Игра Жизнь")
 
 ##### Презентации:
+
 [ODP презентация](Presentation.odp)
 
 [Google Slides презентация](https://docs.google.com/presentation/d/e/2PACX-1vTtJpjPjNmKIxW-hrjlhar5itVQp9TIDhgWIeRgmNBsOxbP8_7T2sqGwv46koQfH1fmTXrsJZuAtO9F/pub?start=false&loop=false&delayms=3000)
@@ -27,7 +27,7 @@ https://github.com/shurupov/otus-react-project
 Установить все пакеты:
 `npm install`
 
-Запустить в dev-mode: 
+Запустить в dev-mode:
 `npm start`
 
 Собрать и запустить в prod-mode:

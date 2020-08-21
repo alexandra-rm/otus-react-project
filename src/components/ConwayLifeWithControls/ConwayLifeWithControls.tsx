@@ -1,7 +1,7 @@
-import  React from "react";
-import {ConnectedControlsForm} from "smart/ControlsForm/ConnectedControlsForm";
-import {ConnectedConwayLife} from "smart/ConwayLife/ConnectedConwayLife";
-import {Redirect} from "react-router";
+import React from "react";
+import { ConnectedControlsForm } from "smart/ControlsForm/ConnectedControlsForm";
+import { ConnectedConwayLife } from "smart/ConwayLife/ConnectedConwayLife";
+import { Redirect } from "react-router";
 
 interface AuthenticationProps {
     authenticated: boolean;
@@ -16,6 +16,6 @@ export const ConwayLifeWithControls = (props: AuthenticationProps) => {
             </>
         );
     } else {
-        return <Redirect to="/login" />
+        return <Redirect to="/login" />;
     }
 };

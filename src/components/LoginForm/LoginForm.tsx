@@ -4,7 +4,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 
 interface LoginProps {
     authenticated: boolean;
@@ -12,11 +12,11 @@ interface LoginProps {
 }
 
 export class LoginForm extends React.Component<LoginProps> {
-
     handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         // @ts-ignore
-        const username = document.getElementById("username-input").value as string;
+        const username = document.getElementById("username-input")
+            .value as string;
         this.props.login(username);
     };
 
@@ -27,12 +27,25 @@ export class LoginForm extends React.Component<LoginProps> {
 
         return (
             <form css={{ marginTop: 20 }} onSubmit={this.handleSubmit}>
-                <Grid container direction="row" justify="center" alignItems="center">
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
                     <Grid item>
-                        <TextField fullWidth label="Представьтесь" id="username-input" />
+                        <TextField
+                            fullWidth
+                            label="Представьтесь"
+                            id="username-input"
+                        />
                     </Grid>
-                    <Grid item >
-                        <Button variant="contained" color="primary" type="submit">
+                    <Grid item>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            type="submit"
+                        >
                             OK
                         </Button>
                     </Grid>
