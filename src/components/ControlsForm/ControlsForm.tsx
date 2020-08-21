@@ -26,7 +26,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
         return (
             <form css={{ marginTop: 20 }}>
                 <Grid container spacing={1}>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -36,7 +36,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                             type="number"
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -46,7 +46,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                             type="number"
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -56,7 +56,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                             type="number"
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -66,7 +66,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                             type="number"
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -76,7 +76,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                             type="number"
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <Grid item xs={12} sm={6} md={4}>
                         <TextField
                             fullWidth
                             variant="outlined"

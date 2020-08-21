@@ -70,7 +70,7 @@ export async function restoreSession() {
 export function* workerSagaRestoreSession() {
   const user = yield call(restoreSession);
   if (user) {
-    yield put(userSlice.actions.login(user));
+    yield put(userSlice.actions.login(user.username));
     yield put(reinitAction());
   }
 }
