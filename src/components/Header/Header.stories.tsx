@@ -1,6 +1,7 @@
 import {boolean, text, withKnobs} from "@storybook/addon-knobs";
 import {Header} from "./Header";
 import React from "react";
+import {StaticRouter} from "react-router";
 
 export default {
     title: "Header",
@@ -9,8 +10,11 @@ export default {
 };
 
 export const header = () => {
-    return <Header
-        authenticated={boolean("authenticated", true)}
-        username={text("username", "Evgeny")}
-    />
+    return <StaticRouter>
+        <Header
+            authenticated={boolean("authenticated", true)}
+            username={text("username", "Evgeny")}
+            logout={() => { alert("Logout!"); }}
+        />
+    </StaticRouter>;
 };

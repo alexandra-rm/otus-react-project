@@ -9,5 +9,5 @@ export default {
 };
 
 export const loginForm = () => {
-    return <LoginForm login={(username: string) => { alert(username); }} />;
+    return <LoginForm authenticated={false} login={(username: string) => { alert(username + " logged in"); }} />;
 };

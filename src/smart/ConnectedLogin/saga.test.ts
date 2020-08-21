@@ -31,20 +31,20 @@ describe("User saga", () => {
     testSaga(workerSagaRestoreSession)
       .next()
       .call(restoreSession)
-      .next({})
-      .put(userSlice.actions.login({}))
+      .next({ username: "Bob" })
+      .put(userSlice.actions.login("Bob"))
       .next()
       .put(reinitAction())
       .next()
       .isDone();
   });
   it("Restore saga integration test", () => {
-    const bob = "Bob";
-    localStorage.setItem("user", JSON.stringify(bob));
+    const username = "Bob";
+    localStorage.setItem("user", JSON.stringify({ username }));
     const expectedFinalStoreState = {
       ...initialState,
       user: {
-        username: bob
+        username
       },
     };
     return expectSaga(workerSagaRestoreSession)
