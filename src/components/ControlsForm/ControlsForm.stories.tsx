@@ -13,7 +13,7 @@ export const controlsForm = () => {
         changeSetting: (fieldName: string, value: number) => {
             console.log("fieldName", fieldName, "value", value);
         },
-        update: () => {
+        reinit: () => {
             console.log("Updated");
         },
         alivePercent: number("alivePercent", 30),

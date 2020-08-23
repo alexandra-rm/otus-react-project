@@ -8,7 +8,6 @@ import {
     process,
     previous,
     compareWithPrevious,
-    fieldsEqual,
 } from "smart/ConwayLife/saga";
 import { conwayFieldSlice } from "smart/ConwayLife/slice";
 import { reducer, StoreState } from "store/reducer";
@@ -143,14 +142,5 @@ describe("Conway saga", () => {
         }
         previous.push(cells);
         expect(compareWithPrevious(cells)).toBe(true);
-    });
-
-    it("fieldsEqual", () => {
-        const cells = boolArrayToCellArray([
-            [true, true, false],
-            [true, false, true],
-            [false, false, false],
-        ]);
-        expect(fieldsEqual(cells, cells)).toBe(true);
     });
 });

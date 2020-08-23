@@ -1,10 +1,10 @@
 import { sagaActionTypes } from "store/sagaActionTypes";
 import { AnyAction } from "redux";
 import { conwaySettingsSlice } from "smart/ControlsForm/slice";
-import { reinitAction } from "smart/ConwayLife/saga";
+import { reinit } from "smart/ConwayLife/saga";
 import { put, takeEvery } from "redux-saga/effects";
 
-export const changeSettingAction = (field: string, value: number) => {
+export const changeSetting = (field: string, value: number) => {
     return {
         type: sagaActionTypes.CHANGE_SETTING,
         payload: {
@@ -28,7 +28,7 @@ export function* workerSagaChangeSetting({
     );
     const fieldsToUpdate = ["fieldHeight", "fieldWidth", "alivePercent"];
     if (fieldsToUpdate.includes(field)) {
-        yield put(reinitAction());
+        yield put(reinit());
     }
 }
 
