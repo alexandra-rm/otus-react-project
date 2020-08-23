@@ -32,39 +32,39 @@ export const About = () => {
             </Typography>
 
             <Typography variant="h3">Презентации</Typography>
-                <ListItem
-                    button
-                    component={Link}
-                    target="_blank"
-                    href="https://github.com/shurupov/otus-react-project/blob/authentication/Presentation.odp"
-                >
-                    <ListItemText primary="ODP презентация" />
-                </ListItem>
-                <ListItem
-                    button
-                    component={Link}
-                    target="_blank"
-                    href="https://docs.google.com/presentation/d/e/2PACX-1vTtJpjPjNmKIxW-hrjlhar5itVQp9TIDhgWIeRgmNBsOxbP8_7T2sqGwv46koQfH1fmTXrsJZuAtO9F/pub?start=false&loop=false&delayms=3000"
-                >
-                    <ListItemText primary="Google Slides презентация" />
-                </ListItem>
+            <ListItem
+                button
+                component={Link}
+                target="_blank"
+                href="https://github.com/shurupov/otus-react-project/blob/authentication/Presentation.odp"
+            >
+                <ListItemText primary="ODP презентация" />
+            </ListItem>
+            <ListItem
+                button
+                component={Link}
+                target="_blank"
+                href="https://docs.google.com/presentation/d/e/2PACX-1vTtJpjPjNmKIxW-hrjlhar5itVQp9TIDhgWIeRgmNBsOxbP8_7T2sqGwv46koQfH1fmTXrsJZuAtO9F/pub?start=false&loop=false&delayms=3000"
+            >
+                <ListItemText primary="Google Slides презентация" />
+            </ListItem>
 
             <Typography variant="h3">Используемые технологии</Typography>
-                <ListItem button component="li">
-                    <ListItemText primary="Babel, Webpack, TypeScript, loki, Jest" />
-                </ListItem>
-                <ListItem button component="li">
-                    <ListItemText primary="ReactJS, JSX, Storybook, Emotion, Enzyme, material-ui" />
-                </ListItem>
-                <ListItem button component="li">
-                    <ListItemText primary="Redux, Saga, redux-saga-test-plan" />
-                </ListItem>
-                <ListItem button component="li">
-                    <ListItemText primary="ReactRouter" />
-                </ListItem>
-                <ListItem button component="li">
-                    <ListItemText primary="Express, pupeteer/NextJS (SSR)" />
-                </ListItem>
+            <ListItem button component="li">
+                <ListItemText primary="Babel, Webpack, TypeScript, loki, Jest" />
+            </ListItem>
+            <ListItem button component="li">
+                <ListItemText primary="ReactJS, JSX, Storybook, Emotion, Enzyme, material-ui" />
+            </ListItem>
+            <ListItem button component="li">
+                <ListItemText primary="Redux, Saga, redux-saga-test-plan" />
+            </ListItem>
+            <ListItem button component="li">
+                <ListItemText primary="ReactRouter" />
+            </ListItem>
+            <ListItem button component="li">
+                <ListItemText primary="Express, pupeteer/NextJS (SSR)" />
+            </ListItem>
         </Box>
     );
 };
