@@ -14,9 +14,9 @@ interface LoginProps {
 export class LoginForm extends React.Component<LoginProps> {
     handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        // @ts-ignore
-        const username = document.getElementById("username-input")
-            .value as string;
+        const username = (document.getElementById(
+            "username-input"
+        ) as HTMLInputElement).value;
         this.props.login(username);
     };
 

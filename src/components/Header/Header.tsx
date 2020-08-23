@@ -43,13 +43,13 @@ export const Header = (props: HeaderProps) => {
                                     Жизнь
                                 </RouterLink>
                                 <RouterLink
-                                    to="/something"
+                                    to="/about"
                                     css={{
                                         color: "white",
                                         textDecoration: "none",
                                     }}
                                 >
-                                    О жизни
+                                    О проекте
                                 </RouterLink>
                             </Typography>
                         </Grid>
