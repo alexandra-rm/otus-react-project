@@ -8,7 +8,6 @@ import {
     process,
     previous,
     compareWithPrevious,
-    fieldsEqual,
 } from "smart/ConwayLife/saga";
 import { conwayFieldSlice } from "smart/ConwayLife/slice";
 import { reducer, StoreState } from "store/reducer";

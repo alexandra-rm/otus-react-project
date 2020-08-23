@@ -115,30 +115,6 @@ export const delayTimeSelector = (state: StoreState) =>
 
 export const previous: Array<Array<Array<PoorCellProps>>> = [];
 
-function cellsEqual(cell1: PoorCellProps, cell2: PoorCellProps) {
-    return cell1.alive === cell2.alive;
-}
-
-export function fieldsEqual(
-    field1: Array<Array<PoorCellProps>>,
-    field2: Array<Array<PoorCellProps>>
-) {
-    if (field1.length !== field2.length) {
-        return false;
-    }
-    for (let i = 0; i < field1.length; i++) {
-        if (field1[i].length !== field2[i].length) {
-            return false;
-        }
-        for (let j = 0; j < field1[i].length; j++) {
-            if (!cellsEqual(field1[i][j], field2[i][j])) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
 export function compareWithPrevious(field: Array<Array<PoorCellProps>>) {
     for (const state of previous) {
         if (isEqual(state, field)) {

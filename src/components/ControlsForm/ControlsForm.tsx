@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 
 export interface ControlsFormProps extends ConwaySettings {
     changeSetting: Function;
-    update: MouseEventHandler;
+    reinit: MouseEventHandler;
 }
 
 export class ControlsForm extends React.Component<ControlsFormProps> {
@@ -88,7 +88,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={this.props.update}
+                            onClick={this.props.reinit}
                         >
                             Обновить
                         </Button>
