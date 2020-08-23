@@ -5,6 +5,7 @@ import { conwayFieldSlice } from "smart/ConwayLife/slice";
 import { ConwaySettings } from "components/ConwayLife/ConwayLife";
 import { sleep } from "utils/sleep";
 import { sagaActionTypes } from "store/sagaActionTypes";
+import { isEqual } from "lodash";
 
 export const initField = (
     settings: ConwaySettings
@@ -87,13 +88,13 @@ export const process = (
     return newField;
 };
 
-export const updateAction = () => {
+export const update = () => {
     return {
         type: sagaActionTypes.UPDATE,
     };
 };
 
-export const reinitAction = () => {
+export const reinit = () => {
     return {
         type: sagaActionTypes.REINIT,
     };
@@ -140,7 +141,7 @@ export function fieldsEqual(
 
 export function compareWithPrevious(field: Array<Array<PoorCellProps>>) {
     for (const state of previous) {
-        if (fieldsEqual(state, field)) {
+        if (isEqual(state, field)) {
             return true;
         }
     }
@@ -176,7 +177,7 @@ export function* watchSagaInit() {
 }
 
 export function* workerSagaConwayStart() {
-    yield put(reinitAction());
+    yield put(reinit());
     while (true) {
         const delayTime = yield select(delayTimeSelector);
         yield call(sleep, delayTime);

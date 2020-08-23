@@ -144,13 +144,4 @@ describe("Conway saga", () => {
         previous.push(cells);
         expect(compareWithPrevious(cells)).toBe(true);
     });
-
-    it("fieldsEqual", () => {
-        const cells = boolArrayToCellArray([
-            [true, true, false],
-            [true, false, true],
-            [false, false, false],
-        ]);
-        expect(fieldsEqual(cells, cells)).toBe(true);
-    });
 });
