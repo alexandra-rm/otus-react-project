@@ -1,6 +1,6 @@
 import { StoreState } from "store/reducer";
-import { Dispatch } from "redux";
-import { updateAction } from "smart/ConwayLife/saga";
+import { bindActionCreators, Dispatch } from "redux";
+import { update } from "smart/ConwayLife/saga";
 import { connect } from "react-redux";
 import { ConwayLife } from "components/ConwayLife/ConwayLife";
 
@@ -10,11 +10,7 @@ const mapStateToProps = ({ conwaySettings, conwayField }: StoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        update: () => {
-            dispatch(updateAction());
-        },
-    };
+    return bindActionCreators({ update }, dispatch);
 };
 
 export const ConnectedConwayLife = connect(

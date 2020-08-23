@@ -1,8 +1,8 @@
 import { expectSaga, testSaga } from "redux-saga-test-plan";
-import { reinitAction } from "smart/ConwayLife/saga";
+import { reinit } from "smart/ConwayLife/saga";
 import { reducer, StoreState } from "store/reducer";
 import {
-    changeSettingAction,
+    changeSetting,
     workerSagaChangeSetting,
 } from "smart/ControlsForm/saga";
 import { conwaySettingsSlice } from "smart/ControlsForm/slice";
@@ -21,10 +21,7 @@ const initialState: StoreState = {
 
 describe("Conway settings", () => {
     it("Conway changeSetting test with reinit unit test", () => {
-        testSaga(
-            workerSagaChangeSetting,
-            changeSettingAction("fieldHeight", 15)
-        )
+        testSaga(workerSagaChangeSetting, changeSetting("fieldHeight", 15))
             .next()
             .put(
                 conwaySettingsSlice.actions.changeSetting({
@@ -33,7 +30,7 @@ describe("Conway settings", () => {
                 })
             )
             .next({})
-            .put(reinitAction())
+            .put(reinit())
             .next()
             .isDone();
     });
@@ -41,7 +38,7 @@ describe("Conway settings", () => {
     it("Conway changeSetting integration test", () => {
         return expectSaga(
             workerSagaChangeSetting,
-            changeSettingAction("fieldHeight", 15)
+            changeSetting("fieldHeight", 15)
         )
             .withReducer(reducer, { ...initialState })
             .run(500)
@@ -52,7 +49,7 @@ describe("Conway settings", () => {
     });
 
     it("Conway unit changeSetting test without reinit", () => {
-        testSaga(workerSagaChangeSetting, changeSettingAction("cellSize", 15))
+        testSaga(workerSagaChangeSetting, changeSetting("cellSize", 15))
             .next()
             .put(
                 conwaySettingsSlice.actions.changeSetting({
@@ -65,7 +62,7 @@ describe("Conway settings", () => {
     });
 
     it("Conway unit changeSetting test with negative value", () => {
-        testSaga(workerSagaChangeSetting, changeSettingAction("cellSize", -10))
+        testSaga(workerSagaChangeSetting, changeSetting("cellSize", -10))
             .next()
             .isDone();
     });
