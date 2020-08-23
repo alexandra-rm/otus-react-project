@@ -1,5 +1,5 @@
-import {withKnobs} from "@storybook/addon-knobs";
-import {About} from "./About";
+import { withKnobs } from "@storybook/addon-knobs";
+import { About } from "./About";
 import React from "react";
 
 export default {
@@ -9,5 +9,5 @@ export default {
 };
 
 export const about = () => {
-    return <About />
+    return <About />;
 };
