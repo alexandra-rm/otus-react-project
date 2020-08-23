@@ -1,6 +1,6 @@
 import { testSaga, expectSaga } from "redux-saga-test-plan";
 import { reducer, StoreState } from "store/reducer";
-import { reinitAction } from "smart/ConwayLife/saga";
+import { reinit } from "smart/ConwayLife/saga";
 import {
     clearSession,
     restoreSession,
@@ -35,7 +35,7 @@ describe("User saga", () => {
             .next({ username: "Bob" })
             .put(userSlice.actions.login("Bob"))
             .next()
-            .put(reinitAction())
+            .put(reinit())
             .next()
             .isDone();
     });
@@ -60,7 +60,7 @@ describe("User saga", () => {
             .next({})
             .put(userSlice.actions.login({}))
             .next()
-            .put(reinitAction())
+            .put(reinit())
             .next()
             .isDone();
     });
