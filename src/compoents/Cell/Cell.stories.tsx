@@ -14,6 +14,6 @@ export const cell = () => (
     size={number("size", 100)}
     step={number("step", 0)}
     animated={boolean("animated", false)}
-    stepsCount={4}
+    stepsCount={number("stepsCount", 4)}
   />
 );
