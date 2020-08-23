@@ -5,13 +5,13 @@ import {TextField} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {changeSettingAction, reinitAction} from "smart/ConwayLife/saga";
-import {Dispatch} from "redux";
+import {changeSetting, reinit} from "smart/ConwayLife/saga";
+import {bindActionCreators, Dispatch} from "redux";
 import {StoreState} from "store/reducer";
 
 export interface ControlsFormProps extends ConwaySettings {
     changeSetting: Function;
-    update: MouseEventHandler;
+    reinit: MouseEventHandler;
 }
 
 export class ControlsForm extends React.Component<ControlsFormProps> {
@@ -47,7 +47,7 @@ export class ControlsForm extends React.Component<ControlsFormProps> {
                         <TextField fullWidth variant="outlined" label="Количество шагов анимации" defaultValue={this.props.animationStepsCount.toString()} onChange={this.handleChange("animationStepsCount")}  type="number"/>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="contained" color="primary" onClick={this.props.update}>
+                        <Button variant="contained" color="primary" onClick={this.props.reinit}>
                             Обновить
                         </Button>
                     </Grid>
@@ -64,14 +64,7 @@ const mapStateToProps = ({ conwaySettings }: StoreState) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        changeSetting: (fieldName: string, value: number) => {
-            dispatch(changeSettingAction(fieldName, value));
-        },
-        update: () => {
-            dispatch(reinitAction());
-        },
-    };
+    return bindActionCreators({ changeSetting, reinit }, dispatch);
 };
 
 export const ConnectedControlsForm = connect(

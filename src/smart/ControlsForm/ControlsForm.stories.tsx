@@ -11,7 +11,7 @@ export default {
 export const controlsForm = () => {
     const settings: ControlsFormProps = {
         changeSetting: (fieldName: string, value: number) => { console.log("fieldName", fieldName, "value", value); },
-        update: () => { console.log("Updated") },
+        reinit: () => { console.log("Updated") },
         alivePercent: number("alivePercent", 30),
         animationDelay: 0,
         animationStepsCount: 0,

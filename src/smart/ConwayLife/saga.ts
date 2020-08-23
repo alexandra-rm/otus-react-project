@@ -8,6 +8,7 @@ import {
 import { AnyAction } from "redux";
 import {ConwaySettings} from "smart/ConwayLife/ConwayLife";
 import {sleep} from "utils/sleep";
+import { isEqual } from "lodash";
 
 const conwaySagaActionTypes = {
     START: "saga/conway/start",
@@ -97,13 +98,13 @@ export const process = (
     return newField;
 };
 
-export const updateAction = () => {
+export const update = () => {
     return {
         type: conwaySagaActionTypes.UPDATE,
     };
 };
 
-export const reinitAction = () => {
+export const reinit = () => {
     return {
         type: conwaySagaActionTypes.REINIT,
     };
@@ -115,7 +116,7 @@ export const startAction = () => {
     };
 };
 
-export const changeSettingAction = (field: string, value: number) => {
+export const changeSetting = (field: string, value: number) => {
     return {
         type: conwaySagaActionTypes.CHANGE_SETTING,
         payload: {
@@ -133,33 +134,9 @@ export const delayTimeSelector = (state: StoreState) => state.conwaySettings.ani
 
 export const previous: Array<Array<Array<PoorCellProps>>> = [];
 
-function cellsEqual(cell1: PoorCellProps, cell2: PoorCellProps) {
-    return cell1.alive === cell2.alive;
-}
-
-export function fieldsEqual(
-    field1: Array<Array<PoorCellProps>>,
-    field2: Array<Array<PoorCellProps>>
-) {
-    if (field1.length !== field2.length) {
-        return false;
-    }
-    for (let i = 0; i < field1.length; i++) {
-        if (field1[i].length !== field2[i].length) {
-            return false;
-        }
-        for (let j = 0; j < field1[i].length; j++) {
-            if (!cellsEqual(field1[i][j], field2[i][j])) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
 export function compareWithPrevious(field: Array<Array<PoorCellProps>>) {
     for (const state of previous) {
-        if (fieldsEqual(state, field)) {
+        if (isEqual(state, field)) {
             return true;
         }
     }
@@ -208,7 +185,7 @@ export function* workerSagaChangeSetting({
     );
     const fieldsToUpdate = ["fieldHeight", "fieldWidth", "alivePercent"];
     if (fieldsToUpdate.includes(field)) {
-        yield put(reinitAction());
+        yield put(reinit());
     }
 }
 
@@ -220,7 +197,7 @@ export function* watchSagaChangeSetting() {
 }
 
 export function* workerSagaConwayStart() {
-    yield put(reinitAction());
+    yield put(reinit());
     while (true) {
         const delayTime = yield select(delayTimeSelector);
         yield call(sleep, delayTime);

@@ -7,11 +7,10 @@ import {
   fieldSelector,
   process,
   workerSagaChangeSetting,
-  changeSettingAction,
-  reinitAction,
+  changeSetting,
+  reinit,
   previous,
   compareWithPrevious,
-  fieldsEqual,
 } from "smart/ConwayLife/saga";
 import { conwayFieldSlice, conwaySettingsSlice } from "smart/ConwayLife/slice";
 import { reducer, StoreState } from "store/reducer";
@@ -134,7 +133,7 @@ describe("Conway saga", () => {
   });
 
   it("Conway changeSetting test with reinit unit test", () => {
-    testSaga(workerSagaChangeSetting, changeSettingAction("fieldHeight", 15))
+    testSaga(workerSagaChangeSetting, changeSetting("fieldHeight", 15))
       .next()
       .put(
         conwaySettingsSlice.actions.changeSetting({
@@ -143,7 +142,7 @@ describe("Conway saga", () => {
         })
       )
       .next({})
-      .put(reinitAction())
+      .put(reinit())
       .next()
       .isDone();
   });
@@ -151,7 +150,7 @@ describe("Conway saga", () => {
   it("Conway changeSetting integration test", () => {
     return expectSaga(
       workerSagaChangeSetting,
-      changeSettingAction("fieldHeight", 15)
+      changeSetting("fieldHeight", 15)
     )
       .withReducer(reducer, { ...initialState })
       .run(500)
@@ -162,7 +161,7 @@ describe("Conway saga", () => {
   });
 
   it("Conway unit changeSetting test without reinit", () => {
-    testSaga(workerSagaChangeSetting, changeSettingAction("cellSize", 15))
+    testSaga(workerSagaChangeSetting, changeSetting("cellSize", 15))
       .next()
       .put(
         conwaySettingsSlice.actions.changeSetting({
@@ -175,7 +174,7 @@ describe("Conway saga", () => {
   });
 
   it("Conway unit changeSetting test with negative value", () => {
-    testSaga(workerSagaChangeSetting, changeSettingAction("cellSize", -10))
+    testSaga(workerSagaChangeSetting, changeSetting("cellSize", -10))
       .next()
       .isDone();
   });
@@ -191,14 +190,5 @@ describe("Conway saga", () => {
     }
     previous.push(cells);
     expect(compareWithPrevious(cells)).toBe(true);
-  });
-
-  it("fieldsEqual", () => {
-    const cells = boolArrayToCellArray([
-      [true, true, false],
-      [true, false, true],
-      [false, false, false],
-    ]);
-    expect(fieldsEqual(cells, cells)).toBe(true);
   });
 });

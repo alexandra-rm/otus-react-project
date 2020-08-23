@@ -3,8 +3,8 @@ import { jsx } from "@emotion/core";
 import {Cell, PoorCellProps} from "./Cell";
 import { connect } from "react-redux";
 import React from "react";
-import {updateAction} from "smart/ConwayLife/saga";
-import {Dispatch} from "redux";
+import {update} from "smart/ConwayLife/saga";
+import {bindActionCreators, Dispatch} from "redux";
 import {StoreState} from "store/reducer";
 import Grid from "@material-ui/core/Grid";
 
@@ -55,11 +55,7 @@ const mapStateToProps = ({ conwaySettings, conwayField }: StoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        update: () => {
-            dispatch(updateAction());
-        },
-    };
+    return bindActionCreators({ update }, dispatch);
 };
 
 export const ConnectedConwayLife = connect(
