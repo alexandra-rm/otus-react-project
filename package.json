@@ -16,7 +16,11 @@
         "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
         "loki:approve": "npx loki approve",
         "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
-        "check": "npm test && npm run test:loki"
+        "check": "npm test && npm run test:loki",
+        "next:dev": "next dev",
+        "next:build": "next build",
+        "next:start": "next start",
+        "next:prod": "next build && next start"
     },
     "author": "Evgeny Shurupov",
     "license": "ISC",

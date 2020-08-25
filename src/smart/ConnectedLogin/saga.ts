@@ -60,6 +60,9 @@ export const sagaRestoreSessionAction = () => {
 };
 
 export async function restoreSession() {
+    if (localStorage === undefined) {
+        return null;
+    }
     const userString = localStorage.getItem("user");
     if (userString) {
         return JSON.parse(userString);
