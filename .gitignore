@@ -4,4 +4,6 @@
 /package-lock.json
 /coverage
 /storybook-static
-.~lock.Presentation.odp#
+/.~lock.Presentation.odp#
+/.next
+/.next-env.d.ts
