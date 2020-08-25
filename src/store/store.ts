@@ -10,6 +10,12 @@ import {
     watchSagaUpdate,
 } from "smart/ConwayLife/saga";
 import { watchSagaChangeSetting } from "smart/ControlsForm/saga";
+import {
+    sagaRestoreSessionAction,
+    watchSagaLogin,
+    watchSagaLogout,
+    watchSagaRestoreSession,
+} from "smart/ConnectedLogin/saga";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,4 +28,8 @@ sagaMiddleware.run(watchSagaUpdate);
 sagaMiddleware.run(watchSagaConwayStart);
 sagaMiddleware.run(watchSagaInit);
 sagaMiddleware.run(watchSagaChangeSetting);
+sagaMiddleware.run(watchSagaLogin);
+sagaMiddleware.run(watchSagaLogout);
+sagaMiddleware.run(watchSagaRestoreSession);
 store.dispatch(startAction());
+store.dispatch(sagaRestoreSessionAction());
