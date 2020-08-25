@@ -17,7 +17,7 @@
         "loki:approve": "npx loki approve",
         "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
         "check": "npm test && npm run test:loki",
-        "ssr": "node server/index.js"
+        "ssr": "ts-node server/index.js"
     },
     "author": "Evgeny Shurupov",
     "license": "ISC",
@@ -60,6 +60,7 @@
         "prettier": "^2.0.5",
         "react-is": "^16.13.1",
         "redux-saga-test-plan": "^4.0.0-rc.3",
+        "ts-node": "^9.0.0",
         "typescript": "^3.9.7",
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12",
