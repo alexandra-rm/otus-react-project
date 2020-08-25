@@ -1,7 +1,7 @@
-import {boolean, number, withKnobs} from "@storybook/addon-knobs";
-import {ConwayLife, ConwaySettings} from "./ConwayLife";
-import {PoorCellProps} from "./Cell";
-import * as React from "react";
+import { boolean, number, withKnobs } from "@storybook/addon-knobs";
+import { ConwayLife, ConwaySettings } from "./ConwayLife";
+import { PoorCellProps } from "./Cell/Cell";
+import React from "react";
 
 export default {
     title: "ConwayLife",
@@ -30,7 +30,6 @@ const initField = (
 };
 
 export const conwayLife = () => {
-
     const random = boolean("Random Field Filling", false);
 
     const settings: ConwaySettings = {
@@ -39,8 +38,13 @@ export const conwayLife = () => {
         animationStepsCount: 0,
         cellSize: number("size", 10),
         fieldHeight: number("fieldHeight", 25),
-        fieldWidth: number("fieldWidth", 25)
+        fieldWidth: number("fieldWidth", 25),
     };
 
-    return <ConwayLife conwayField={initField(settings, random)} conwaySettings={settings} />;
+    return (
+        <ConwayLife
+            conwayField={initField(settings, random)}
+            conwaySettings={settings}
+        />
+    );
 };

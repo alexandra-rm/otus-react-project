@@ -1,21 +1,11 @@
-import { PoorCellProps } from "smart/ConwayLife/Cell";
+import { PoorCellProps } from "components/ConwayLife/Cell/Cell";
 import { call, put, takeEvery, select } from "redux-saga/effects";
 import { StoreState } from "store/reducer";
-import {
-    conwayFieldSlice,
-    conwaySettingsSlice,
-} from "smart/ConwayLife/slice";
-import { AnyAction } from "redux";
-import {ConwaySettings} from "smart/ConwayLife/ConwayLife";
-import {sleep} from "utils/sleep";
+import { conwayFieldSlice } from "smart/ConwayLife/slice";
+import { ConwaySettings } from "components/ConwayLife/ConwayLife";
+import { sleep } from "utils/sleep";
+import { sagaActionTypes } from "store/sagaActionTypes";
 import { isEqual } from "lodash";
-
-const conwaySagaActionTypes = {
-    START: "saga/conway/start",
-    UPDATE: "saga/conway/update",
-    REINIT: "saga/conway/reinit",
-    CHANGE_SETTING: "saga/conway/changeSetting",
-};
 
 export const initField = (
     settings: ConwaySettings
@@ -75,10 +65,10 @@ export const process = (
             const oldFieldCell: PoorCellProps =
                 i > oldField.length - 1 || j > oldField[i].length - 1
                     ? {
-                        alive: false,
-                        step: 0,
-                        animated: false,
-                    }
+                          alive: false,
+                          step: 0,
+                          animated: false,
+                      }
                     : oldField[i][j];
             newField[i][j] = {
                 alive: newFieldAlive,
@@ -100,29 +90,19 @@ export const process = (
 
 export const update = () => {
     return {
-        type: conwaySagaActionTypes.UPDATE,
+        type: sagaActionTypes.UPDATE,
     };
 };
 
 export const reinit = () => {
     return {
-        type: conwaySagaActionTypes.REINIT,
+        type: sagaActionTypes.REINIT,
     };
 };
 
 export const startAction = () => {
     return {
-        type: conwaySagaActionTypes.START,
-    };
-};
-
-export const changeSetting = (field: string, value: number) => {
-    return {
-        type: conwaySagaActionTypes.CHANGE_SETTING,
-        payload: {
-            field,
-            value,
-        },
+        type: sagaActionTypes.START,
     };
 };
 
@@ -130,7 +110,8 @@ export const settingsSelector = (state: StoreState) => state.conwaySettings;
 
 export const fieldSelector = (state: StoreState) => state.conwayField;
 
-export const delayTimeSelector = (state: StoreState) => state.conwaySettings.animationDelay;
+export const delayTimeSelector = (state: StoreState) =>
+    state.conwaySettings.animationDelay;
 
 export const previous: Array<Array<Array<PoorCellProps>>> = [];
 
@@ -158,7 +139,7 @@ export function* workerSagaUpdate() {
 }
 
 export function* watchSagaUpdate() {
-    yield takeEvery(conwaySagaActionTypes.UPDATE, workerSagaUpdate);
+    yield takeEvery(sagaActionTypes.UPDATE, workerSagaUpdate);
 }
 
 export function* workerSagaInit() {
@@ -168,32 +149,7 @@ export function* workerSagaInit() {
 }
 
 export function* watchSagaInit() {
-    yield takeEvery(conwaySagaActionTypes.REINIT, workerSagaInit);
-}
-
-export function* workerSagaChangeSetting({
-                                             payload: { field, value },
-                                         }: AnyAction) {
-    if (value < 0) {
-        return;
-    }
-    yield put(
-        conwaySettingsSlice.actions.changeSetting({
-            field,
-            value,
-        })
-    );
-    const fieldsToUpdate = ["fieldHeight", "fieldWidth", "alivePercent"];
-    if (fieldsToUpdate.includes(field)) {
-        yield put(reinit());
-    }
-}
-
-export function* watchSagaChangeSetting() {
-    yield takeEvery(
-        conwaySagaActionTypes.CHANGE_SETTING,
-        workerSagaChangeSetting
-    );
+    yield takeEvery(sagaActionTypes.REINIT, workerSagaInit);
 }
 
 export function* workerSagaConwayStart() {
@@ -206,8 +162,5 @@ export function* workerSagaConwayStart() {
 }
 
 export function* watchSagaConwayStart() {
-    yield takeEvery(
-        conwaySagaActionTypes.START,
-        workerSagaConwayStart
-    );
+    yield takeEvery(sagaActionTypes.START, workerSagaConwayStart);
 }

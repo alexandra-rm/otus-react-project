@@ -1,11 +1,9 @@
-import {ConwayLife, ConwaySettings} from "./ConwayLife";
-import {PoorCellProps} from "./Cell";
-import {mount} from "enzyme";
+import { ConwayLife, ConwaySettings } from "./ConwayLife";
+import { PoorCellProps } from "components/ConwayLife/Cell/Cell";
+import { mount } from "enzyme";
 import React from "react";
 
-const initField = (
-    settings: ConwaySettings
-): Array<Array<PoorCellProps>> => {
+const initField = (settings: ConwaySettings): Array<Array<PoorCellProps>> => {
     const cells: Array<Array<PoorCellProps>> = [];
     for (let i = 0; i < settings.fieldHeight; i++) {
         cells[i] = [];
@@ -26,17 +24,20 @@ const settings: ConwaySettings = {
     animationStepsCount: 0,
     cellSize: 10,
     fieldHeight: 25,
-    fieldWidth: 25
+    fieldWidth: 25,
 };
 
 describe("ConwayLife", () => {
     it("Render", () => {
         const wrapper = mount(
-            <ConwayLife conwayField={initField(settings)} conwaySettings={settings} />
+            <ConwayLife
+                conwayField={initField(settings)}
+                conwaySettings={settings}
+            />
         );
         expect(wrapper.props().conwaySettings).toBe(settings);
         expect(wrapper.props().conwayField).toEqual(initField(settings));
         expect(wrapper.getDOMNode().tagName.toLowerCase()).toBe("div");
-        expect(wrapper.find("Cell")).toHaveLength(25 * 25)
+        expect(wrapper.find("Cell")).toHaveLength(25 * 25);
     });
 });
