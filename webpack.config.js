@@ -5,7 +5,12 @@ module.exports = {
     entry: './src/index.tsx',
     devtool: "source-map",
     resolve: {
-        extensions: [".js", ".jsx", ".ts", ".tsx", ".json"]
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+        alias: {
+            store: path.resolve(__dirname, "src/store"),
+            smart: path.resolve(__dirname, "src/smart"),
+            utils: path.resolve(__dirname, "src/utils"),
+        },
     },
     devServer: {
         contentBase: "./dist",

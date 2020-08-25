@@ -1,7 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import {Cell, PoorCellProps} from "../Cell/Cell";
+import {Cell, PoorCellProps} from "./Cell";
+import { connect } from "react-redux";
 import React from "react";
+import {update} from "smart/ConwayLife/saga";
+import {bindActionCreators, Dispatch} from "redux";
+import {StoreState} from "store/reducer";
+import Grid from "@material-ui/core/Grid";
 
 export interface ConwaySettings {
     fieldWidth: number;
@@ -19,12 +24,8 @@ interface ConwayLifeProps {
 
 export const ConwayLife = (props: ConwayLifeProps) => {
     return (
-        <div
-            className="conway-life"
-            css={{
-                clear: "both",
-            }}
-        >
+        <Grid container spacing={1} >
+            <Grid item xs={12} css={{ marginTop: 8 }}>
             {props.conwayField.map((l: Array<PoorCellProps>, i) => (
                 <div
                     key={"l-" + i.toString()}
@@ -43,6 +44,21 @@ export const ConwayLife = (props: ConwayLifeProps) => {
                     ))}
                 </div>
             ))}
-        </div>
+            </Grid>
+        </Grid>
     );
 };
+
+const mapStateToProps = ({ conwaySettings, conwayField }: StoreState) => ({
+    conwaySettings,
+    conwayField,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return bindActionCreators({ update }, dispatch);
+};
+
+export const ConnectedConwayLife = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ConwayLife);
