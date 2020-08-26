@@ -7,6 +7,7 @@
         "start": "webpack-dev-server --mode development --open --hot",
         "start:prod": "webpack-dev-server --mode production --open",
         "build": "webpack",
+        "prod": "npm run build && npm run start:prod",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./",
         "prettify": "npx prettier . --write",
         "test": "jest",
