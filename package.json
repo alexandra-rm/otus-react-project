@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server --mode development --open --hot",
-        "start:prod": "webpack-dev-server --mode production --open",
-        "build": "webpack",
+        "start:prod": "npx webpack-dev-server --mode production --open",
+        "build": "npx webpack",
         "prod": "npm run build && npm run start:prod",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix ./",
         "prettify": "npx prettier . --write",
