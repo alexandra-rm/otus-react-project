@@ -8,6 +8,10 @@ https://github.com/shurupov/otus-react-project
 
 ![Game of Life Application](game-life.png "Игра Жизнь")
 
+##### Задеплоенное приложение:
+
+https://shurupov.github.io/otus-react-project
+
 ##### Презентации:
 
 [ODP презентация](Presentation.odp)
